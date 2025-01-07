@@ -1,0 +1,70 @@
+Difference between C and C++
+
+# C was developed by Dennis Ritchie between the year 1969 and 1973 at AT&T Bell Labs.	C++ was developed by Bjarne Stroustrup in 1979.
+
+# C does not support polymorphism, encapsulation, and inheritance which means that C does not support object-oriented programming.	C++ supports polymorphism, encapsulation, and inheritance because it is an object-oriented programming language.
+
+# C is (mostly) a subset of C++.	C++ is (mostly) a superset of C.
+
+# Number of keywords in C:
+  – C90: 32
+  – C99: 37
+  – C11: 44
+  – C23: 59	
+
+  Number of keywords in C++:
+  – C++98: 63
+  – C++11: 73
+  – C++17: 73
+  – C++20: 81
+
+# For the development of code, C supports procedural programming.	C++ is known as hybrid language because C++ supports both procedural and object-oriented programming 
+  paradigms.
+
+# Data and functions are separated in C because it is a procedural programming language.	Data and functions are encapsulated together in form of an object in C++.
+
+# C does not support data hiding.	Data is hidden by the Encapsulation to ensure that data structures and operators are used as intended.
+
+# C is a function driven language because C is a procedural programming language.	C++ is an object driven language because it is an object-oriented programming.
+
+# Function and operator overloading is not supported in C.	Function and operator overloading is supported by C++.
+
+# Functions in C are not defined inside structures.	Functions can be used inside a structure in C++.
+
+# Namespace features are not present inside the C.	Namespace is used by C++, which avoid name collisions.
+
+# Standard IO header is stdio.h and uses scanf() and printf() functions are used for input/output in C.	Standard IO header is iostream.h and uses cin and cout are used for 
+  input/output in C++.
+
+# Reference variables are not supported by C.	Reference variables are supported by C++.
+
+# Virtual and friend functions are not supported by C.	Virtual and friend functions are supported by C++.
+
+# C provides malloc() and calloc() functions for dynamic memory allocation, and free() for memory de-allocation.	C++ provides new operator for memory allocation and delete 
+  operator for memory de-allocation.
+
+# Direct support for exception handling is not supported by C.	Exception handling is supported by C++.
+
+# C structures don’t have access modifiers.	C ++ structures have access modifiers.
+
+# There is no strict type checking in C programming language.	Strict type checking in done in C++.  So many programs that run well in C compiler will result in many warnings 
+  and errors under C++ compiler.
+
+# Type punning with unions is allows (C99 and later)	Type punning with unions is undefined behavior (except in very specific circumstances)
+
+# Named initializers may appear out of order	Named initializers must match the data layout of the struct
+
+# File extension is “.c”	File extension is “.cpp” or “.c++” or “.cc” or “.cxx”
+
+# Meta-programming using macros and _Generic()	Meta-programming using templates (macros are still supported but discouraged)
+
+
+
+
+
+
+
+
+
+
+
