@@ -1,0 +1,118 @@
+C++ Basic Syntax
+
+Syntax refers to the rules and regulations for writing statements in a programming language. They can also be viewed as the grammatical rules defining the structure of a programming language.
+
+The C++ language also has its syntax for the functionalities it provides. Different statements have different syntax specifying their usage, but C++ programs also have basic syntax rules that are followed throughout all the programs.
+
+
+Basic Syntax of a C++ Program
+
+We can learn about basic C++ Syntax using the following program.
+
+// C++ program to demonstrate the basic syntax
+// Header File Library
+#include <iostream>
+
+// Standard Namespace
+using namespace std;
+
+// Main Function
+int main()
+{
+
+    // Body of the Function
+
+    // Declaration of Variable
+    int num1 = 24;
+    int num2 = 34;
+
+    int result = num1 + num2;
+
+    // Output
+    cout << result << endl;
+
+    // Return Statement
+    return 0;
+}
+
+
+Output
+58
+The program above shows the basic C++ program that contains header files, main function, namespace declaration, etc. Let’s try to understand them one by one.
+
+1. Header File
+The header files contain the definition of the functions and macros we are using in our program. In line #1, we used the #include  <iostream> statement to tell the compiler to include an iostream header file library which stores the definition of the cin and cout standard input/output streams that we have used for input and output. #include is a preprocessor directive using which we import header files.
+
+2. Namespace
+A namespace in C++ is used to provide a scope or a region where we define identifiers. In line #2, we have used the using namespace std statement for specifying that we will be the standard namespace where all the standard library functions are defined.
+
+3. Main Function
+In line #3, we defined the main function as int main(). The main function is the most important part of any C++ program. The program execution always starts from the main function. All the other functions are called from the main function. In C++, the main function is required to return some value indicating the execution status.
+
+4. Blocks
+Blocks are the group of statements that are enclosed within { } braces. The body of the main function is from line #4 to line #9 enclosed within  { }.
+
+5. Semicolons
+As you may have noticed by now, each statement in the above code is followed by a ( ; ) semicolon symbol. It is used to terminate each line of the statement of the program.
+
+6. Identifiers
+We use identifiers for the naming of variables, functions, and other user-defined data types. An identifier may consist of uppercase and lowercase alphabetical characters, underscore, and digits. The first letter must be an underscore or an alphabet.
+
+7. Keywords
+In the C++ programming language, there are some reserved words that are used for some special meaning in the C++ program. It can’t be used for identifiers. For example, the words int, return, and using are some keywords used in our program.
+
+8. Basic Output cout
+In line #7, we have used the cout stream object (declared in the <iostream> header file) to print the sum of two numbers to the standard output stream (stdout).
+
+
+
+Object-Oriented Programming in C++
+
+C++ programming language supports both procedural-oriented and object-oriented programming. The above example is based on the procedural-oriented programming paradigm. So let’s take another example to discuss Object Oriented Programming in C++.
+
+
+#include <iostream>
+using namespace std;
+
+class Calculate{
+    
+      // Access Modifiers
+    public:
+          // data member
+        int num1 = 50;
+        int num2 = 30;
+        
+          // member function
+        int addition() {
+            int result = num1 + num2;
+            cout << result << endl;
+        }
+};
+
+int main() {
+    
+    // object declaration
+    Calculate add;
+      // member function calling
+    add.addition();
+
+    return 0;
+}
+
+Output
+80
+
+
+1. Class
+A class is a user-defined data type. A class has its own attributes (data members) and behavior (member functions). In line #3, we have declared a class named Calculate and its body expands from line #3 to line #7.
+
+2. Data Members & Member Functions
+The attributes or data in the class are defined by the data members & the functions that work on these data members are called the member functions.
+
+In the above example, num1 and num2 are the data member & addition() is a member function that is working on these two data members. There is a keyword here public that is access modifiers. The access modifier decides who has access to these data members & member functions.
+
+3. Object
+The object is an instance of a class. The class itself is just a template that is not allocated any memory. To use the data and methods defined in the class, we have to create an object of that class.
+
+
+
