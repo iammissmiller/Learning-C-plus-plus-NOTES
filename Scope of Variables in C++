@@ -1,0 +1,104 @@
+In C++, the scope of a variable is the extent in the code upto which the variable can be accessed or worked with. It is the region of the program where the variable is accessible using the name it was declared with.
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+// Declaring first variable
+int a = 10;
+
+int main() {
+
+      // Declaring second variable
+      int b = 9;
+
+      // Accessing a and b variable in their scope
+    cout << a << " " << b;
+
+    return 0;
+}
+
+
+Output
+10 9
+
+Explanation: The variables a and b are declared in some part of the program and accessed in other part. It is possible because the accessing is done in the scope where the variables are valid.
+
+You may have noticed that though variable b is declared inside the main function, variable a is declared outside any function, but we can still access both of them in the main function. You may wonder, can we access b outside main function? The answer is NO. It is due to the difference in the scope of two variables.
+
+In C++, there are mainly two types of variable scopes:
+
+Table of Content
+
+Global Scope
+Local Scope
+
+Now let’s understand each of the scope in a greater detail.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
