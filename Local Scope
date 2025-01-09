@@ -1,0 +1,96 @@
+Local Scope
+
+The local scope is the region inside the curly braces { }. Variables defined within a function or block are said to be local to those functions or a block and are called local variables. Local variables do not exist outside the block in which they are declared, i.e. they cannot be accessed or used outside that block.
+
+Let’s take a look at an example:
+
+#include<iostream>
+using namespace std;
+
+void func() {
+  
+    // This variable is local to function func() and
+      // cannot be accessed outside this function
+    int age = 18;
+}
+
+int main() {
+  
+      // Accessing variable from func() in main function
+    cout << "Age is: " << age;
+    
+    return 0;
+}
+
+Output
+
+./Solution.cpp: In function 'int main()':
+./Solution.cpp:14:27: error: 'age' was not declared in this scope
+     cout << "Age is: " << age;
+                           ^
+
+Explanation: The above program displays an error saying, “age was not declared in this scope“. It is because the age was declared inside the func()‘s scope so it is only accessible in that region, not in main() function.
+
+To correct the above error, we have to display the value of variable age from the function func() only. This is shown in the below program: 
+
+
+#include<iostream>
+using namespace std;
+
+void func() {
+
+    // This variable is local to function func() and
+      // cannot be accessed outside this function
+    int age = 18;
+    cout << age;
+}
+
+int main() {
+    cout << "Age is: ";
+    func();
+    
+    return 0;
+}
+
+Output
+Age is: 18
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
