@@ -1,0 +1,61 @@
+Storage Classes in C++ with Examples
+
+C++ Storage Classes are used to describe the characteristics of a variable/function. It determines the lifetime, visibility, default value, and storage location which helps us to trace the existence of a particular variable during the runtime of a program. Storage class specifiers are used to specify the storage class for a variable.
+
+
+
+C++ provides 6 different storage classes, which are as follows:
+
+Table of Content
+
+auto Storage Class
+
+extern Storage Class
+
+static Storage Class
+
+register Storage Class
+
+mutable Storage Class
+
+thread_local Storage Class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
