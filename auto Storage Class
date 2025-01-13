@@ -1,0 +1,55 @@
+auto Storage Class
+
+The auto storage class is the default class of all the variables declared inside a block. The auto stands for automatic and all the local variables that are declared in a block automatically belong to this class.
+
+Properties of auto Storage Class Objects
+
+Scope: Local
+Default Value: Garbage Value
+Memory Location: RAM
+Lifetime: Till the end of its scope
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    // Declaring an auto variable
+    int a = 32;
+    float b = 3.2;
+    string c = "GeeksforGeeks";
+
+    // Printing the auto variables
+    cout << a << " \n";
+    cout << b << " \n";
+      cout << c << " \n";
+
+    return 0;
+}
+
+Output
+32 
+3.2 
+GeeksforGeeks
+
+Note: Earlier in C++, we could use the auto keyword to declare the auto variables explicitly but after C++11, the meaning of auto keyword is changed, and we could no longer use it to define the auto variables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
