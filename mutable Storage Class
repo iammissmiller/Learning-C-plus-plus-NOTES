@@ -1,0 +1,67 @@
+mutable Storage Class
+
+Sometimes there is a requirement to modify one or more data members of class/struct through the const function even though you don’t want the function to update other members of class/struct. This task can be easily performed by using the mutable keyword. The keyword mutable is mainly used to allow a particular data member of a const object to be modified. 
+
+When we declare a function as const, this pointer passed to the function becomes const. Adding a mutable to a variable allows a const pointer to change members.
+
+Properties of mutable Storage Class
+
+The mutable specifier does not affect the linkage or lifetime of the object. It will be the same as the normal object declared in that place.
+
+Let’s take a look at an example:
+
+
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    int x;
+
+    // Defining mutable variable y
+    // now this can be modified
+    mutable int y;
+
+    A(): x(4), y(10) {}
+};
+
+int main() {
+  
+    // a is created as constant
+    const A a;
+
+    // Trying to change the value
+    a.y = 200;
+    cout << a.y;
+
+    // Uncommenting below lines
+    // will throw error
+    /* a.x = 8;
+    cout << a.x; */
+  
+    return 0;
+}
+
+
+Output
+200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
