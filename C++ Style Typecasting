@@ -1,0 +1,52 @@
+C++ Style Typecasting
+
+C++ introduced its own typecasting method using cast operators. Cast operator is an unary operator which forces one data type to be converted into another data type. C++ supports four types of casting:
+
+Static Cast: Used for standard compile time type conversions.
+
+Dynamic Cast: Used for runtime type conversion in polymorphism and inheritance.
+
+Const Cast: Removes or adds const or volatile qualifiers.
+
+Reinterpret Cast: Used for low-level reinterpretation of bits (e.g., converting pointers).
+
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    double x = 1.2;
+
+    // Explicit conversion from double to int
+    int sum = static_cast<int>(x + 1);
+
+    cout << sum;
+    return 0;
+}
+
+Output
+2
+
+
+Risks of Type Conversion
+
+Type conversion provides useful functionality to the language but also introduces certain risks:
+
+Data loss that occurs when converting from a larger type to a smaller type (e.g., int to char).
+
+Undefined behavior that happens when casting pointers between unrelated types and dereferencing them.
+
+Violation of const correctness when removing const with const_cast and modifying the variable leads to undefined behavior.
+
+Memory misalignment casting pointers to types with stricter alignment can cause crashes.
+
+
+
+
+
+
+
+
+
