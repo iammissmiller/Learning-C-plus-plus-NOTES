@@ -1,0 +1,40 @@
+Access Class’s Static Members
+
+Static members of a class can be accessed without creating the object of the class. It is possible to access them using scope resolution operator.
+
+
+#include<iostream>
+using namespace std;
+
+class A {
+public:
+    static int x; 
+};
+
+// In C++, static members must be explicitly defined 
+// like this
+int A::x = 1;
+
+int main() {
+    
+      // Accessing static data member
+      cout << A::x;
+
+    return 0;
+}
+
+Output
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
