@@ -1,0 +1,83 @@
+static_cast
+
+The static_cast operator is the most commonly used casting operator in C++. It performs compile-time type conversion and is mainly used for explicit conversions that are considered safe by the compiler. 
+
+Syntax
+
+static_cast <new_type> (exp);
+
+where,
+
+exp: Data to be converted.
+new_type: Desired type of expression
+The static_cast can be used to convert between related types, such as numeric types or pointers in the same inheritance hierarchy.
+
+Example
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int n = 10;
+
+    // converting int to double
+    double nd = static_cast<double>(n);
+
+    // printing data type
+    cout << typeid(n).name() << endl;
+
+    // typecasting
+    cout << typeid(static_cast<double>(n)).name() << endl;
+
+    // Printing double type
+    cout << typeid(nd).name();
+
+    return 0;
+}
+
+Output
+i
+d
+d
+
+Explanation: In this example, we have used typeid() operator to check the data type. We have defined an integer variable n and converted it into a double using static_cast. After that, we print the data types of variables and pass static_cast<double>(n) in typeid() to check its data type. we can see the output “i, d, d” is printed where i denotes integer and d denotes double.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
