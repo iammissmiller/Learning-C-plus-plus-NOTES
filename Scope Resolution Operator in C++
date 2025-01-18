@@ -1,0 +1,79 @@
+Scope Resolution Operator in C++
+
+In C++, the scope resolution operator (::) is used to access the identifiers such as variable names and function names defined inside some other scope in the current scope. Let’s take a look at an example:
+
+
+#include <iostream>
+
+int main() {
+
+      // Accessing cout from std namespace using scope
+      // resolution operator
+    std::cout << "GeeksforGeeks";
+
+    return 0;
+}
+
+Output
+GeeksforGeeks
+
+Explanation: The std namespace contains the declaration of cout. So, to use cout, we first need to tell the compiler that it is declared inside the std namespace which is done using ::. The compiler then resolves the cout from there.
+
+
+Syntax of Scope Resolution Operator
+
+The scope resolution operator follows this general syntax:
+
+scope_name :: identifier
+
+where scope_name is the name of the scope where identifier is defined.
+
+
+
+Applications of Scope Resolution Operator
+
+
+Accessing Global Variables
+
+Namespace Resolution
+
+Define Class Member Function Outside Class
+
+Access Class’s Static Member Variables and Functions
+
+Refer to Base Class Member in Derived Class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
