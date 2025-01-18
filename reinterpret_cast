@@ -1,0 +1,73 @@
+reinterpret_cast
+
+The reinterpret_cast operator is used to convert the pointer to any other type of pointer. It does not perform any check whether the pointer converted is of the same type or not.
+
+Syntax
+
+reinterpret_cast <new_type> (exp);
+
+
+Example
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n = 10;
+  
+    // Store the address of number in nptr
+    int* nptr = &n;
+
+    // Reinterpreting the pointer as a char pointer
+    char* charptr = reinterpret_cast<char*>(nptr);
+
+    // Printing the memory addresses and values
+    cout << "Integer Address: " << nptr << endl;
+    cout << "Char Address: " << charptr;
+
+    return 0;
+}
+
+Output
+Integer Address: 0x7ffcd595d6fc
+Char Address: 0x7ffcd595d6fc
+
+Explanation: In the above example, we have defined an int variable n and then store the address of n in nptr of the int type after that we have converted the nptr of the int type into char pointer and then store it into charptr variable. To verify that we have printed the address of both nptr and charptr. To print the address stored in charptr reinterpret_cast<void*> is used to bypass the type-checking mechanism of C++ and allow the pointer to be printed as a generic memory address without any type-specific interpretation.
+
+Note: const_cast and reinterpret_cast are generally not recommended as they vulnerable to different kinds of errors.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
