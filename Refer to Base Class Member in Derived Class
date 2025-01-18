@@ -1,0 +1,69 @@
+Refer to Base Class Member in Derived Class
+
+The scope resolution operator can also be used to refer to the members of base class in a derived class especially if they have the same name.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Base {
+public:
+    void func() {
+        cout << "Base class func()" << endl;
+    }
+};
+
+class Derived : public Base {
+public:
+  
+      // Overridden function
+    void func() {
+        cout << "Derived class func()" << endl;
+    }
+};
+
+int main() {
+    Derived obj;
+  
+      // Calling base class's func() from the object of
+      // derived class
+    obj.Base::func();
+  
+    obj.func();
+    return 0;
+}
+
+
+Output
+Base class func()
+Derived class func()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
