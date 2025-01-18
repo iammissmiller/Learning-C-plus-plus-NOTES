@@ -1,0 +1,46 @@
+Namespace Resolution
+`
+It is also used to resolve the identifier declared inside different namespaces.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// A sample namespace with a variable
+namespace N {
+      int val = 10;
+};
+
+int main() {
+  
+      // Accessing val from namespace N
+    cout << N::val;
+
+      return 0;
+}
+
+Output
+10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
