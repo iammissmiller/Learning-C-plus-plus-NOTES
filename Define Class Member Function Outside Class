@@ -1,0 +1,43 @@
+Define Class Member Function Outside Class
+
+It is also used to define the member function of the class outside the class template.
+
+#include <iostream>
+using namespace std;
+
+// A sample class
+class A {
+public:
+  
+    // Only declaration of member function
+    void fun();
+};
+
+// Definition outside class by referring to it
+// using ::
+void A::fun() {
+      cout << "fun() called";
+}
+
+int main() {
+    A a;
+    a.fun();
+    return 0;
+}
+
+Output
+fun() called
+
+
+
+
+
+
+
+
+
+
+
+
+
+
