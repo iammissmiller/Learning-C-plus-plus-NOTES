@@ -1,0 +1,151 @@
+cin in C++
+
+In C++, cin is an object of istream class that is used to accept the input from the standard input stream i.e. stdin which is by default associated with keyboard. The extraction operator (>>) is used along with cin to extract the data from the object and insert it to the given variable.
+
+Let’s take a look at an example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Variable to store data given by cin
+    int a;
+
+    // Take input using cin
+    cin >> a;
+
+    cout << a;
+    return 0;
+}
+
+Input
+
+10
+
+Output
+
+10
+
+
+Syntax of cin
+cin >> var_name;
+
+
+Here,
+
+>>: It is the extraction operator to extract data from cin.
+var_name: It is a variable that will store the input data provided by the user.
+
+
+Note: cin is initialized when the program starts to make sure it is ready for input operations. It is also linked to cout to ensure that any buffered output is flushed before cin reads from the input stream.
+
+
+Examples of cin
+
+The following examples demonstrate how to use cin in C++ programs:
+
+Taking a Text from User Input
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Variable to store data given by cin
+    string s;
+
+    // Take input using cin
+    cin >> s;
+
+    // Print output
+    cout << s;
+    return 0;
+}
+
+Input
+
+Welcome to GeeksforGeeks
+
+Output
+
+Welcome
+
+
+Taking Multiple Inputs Using the Extraction Operator(>>) with cin
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name;
+    int age;
+
+    // Take multiple input using cin
+    cin >> name >> age;
+
+    cout << "Name : " << name << endl;
+    cout << "Age : " << age << endl;
+
+    return 0;
+}
+
+Input
+
+ABC 13
+
+Output
+
+Name : ABC
+Age : 13
+
+
+
+cin Member Functions in C++
+
+The below table lists some commonly used member functions of cin in C++:
+
+cin.get()	
+
+Reads a single character from the input stream, including whitespace.
+
+cin.getline()
+
+Reads a line of text, including whitespace, and stops when it reaches a newline character.
+
+cin.ignore()	
+
+Ignores a specified number of characters or until a specified delimiter is encountered.
+
+cin.peek()
+
+Returns the next character from the input stream without extracting it.
+
+cin.putback()
+Puts a character back into the input stream.
+
+cin.eof()	
+
+Returns true if the end of the input stream has been reached.
+
+cin.fail()	
+
+Returns true if an input operation has failed (e.g., when input doesn’t match the expected type).
+
+cin.clear()	
+Clears the error flags on the input stream, allowing further operations.
+
+cin.sync()	
+
+Discards unread characters from the input buffer.
+cin.gcount()	Returns the number of characters extracted by the last unformatted input operation.
+
+cin.rdbuf()	Gets or sets the associated stream buffer object for std::cin.
+
+
+
+
+
+
+
