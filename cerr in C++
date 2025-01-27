@@ -1,0 +1,91 @@
+Standard Error Stream Object – cerr in C++
+
+In C++, cerr is the standard error stream used to output the errors. It is an instance of the ostream class and is un-buffered, so it is used when we need to display the error message immediately and does not store the error message to display later. The ‘c’ in cerr refers to “character” and ‘err’ means “error”, Hence cerr means “character error”.
+
+Example:
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+      // Printing error
+    cerr << "Welcome to GfG! :: cerr\n";
+  
+      // Printing using cout
+    cout << "Welcome to GfG! :: cout";
+    return 0;
+}
+
+Error
+
+Welcome to GfG! :: cerr
+Welcome to GfG! :: cout
+
+Explanation: In this program, cerr is used to print an error message immediately to the console because it is unbuffered. The message “Welcome to GfG! :: cerr” is displayed without delay. On the other hand, cout is used for standard output, and the message “Welcome to GfG! :: cout” may be buffered and displayed after the program execution completes.
+
+Syntax of cerr
+
+cerr is defined inside the <iostream> header file and is similar to the standard output stream.
+
+cerr << “Error message”;
+
+Key Features of cerr
+
+The following are the key features of cerr object:
+
+Unbuffered Output: cerr outputs data immediately, which means it does not store the data in a buffer. This makes it ideal for error messages, as they need to be displayed right away.
+Separation of Error Messages: By using cerr, error messages can be distinguished from regular program output, which typically uses cout. This separation helps in logging and debugging.
+
+Example of cerr
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n1, n2;
+    
+    cout << "Enter two numbers: ";
+    cin >> n1 >> n2;
+    
+      // Displaying error using cerr
+    if (n2 == 0) {
+        cerr << "Error: Division by zero!" << endl;
+        return 1;
+    }
+    
+    cout << "Result: " << n1 / n2 << endl;
+    return 0;
+}
+
+Output
+Enter two numbers: 10 0
+Error: Division by zero!
+
+Explanation: In this program, cerr is used to display an error message if the user tries to divide by zero. If n2 is zero, the message “Error: Division by zero!” is immediately printed to the console, signalling an error, and the program exits with a return value of 1.
+
+
+Redirecting cerr to a File
+
+Although cerr is typically used to output errors to the console, it can also be redirected to a file. This can be helpful when you need to log errors in a program.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  
+      // Creating ostream to a log file
+    ofstream errorLog("error_log.txt");
+
+      // Redirect cerr to the file
+    cerr.rdbuf(errorLog.rdbuf());
+    cerr << "This is an error message written to a file." << endl;
+    
+    errorLog.close();
+    return 0;
+}
+
+In the file error_log.txt:
+
+This is an error message written to a file.
