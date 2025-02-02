@@ -1,0 +1,120 @@
+C++ if Statement
+
+The C++ if statement is the most simple decision-making statement. It is used to decide whether a certain statement or block of statements will be executed or not executed based on a certain condition. Let’s take a look at an example:
+
+#include <iostream> 
+using namespace std; 
+  
+int main()  { 
+    int i = 10; 
+  
+      // If statement
+    if (i < 15) { 
+        cout << "10 is less than 15"; 
+    } 
+  
+    return 0;
+}
+
+Output
+10 is less than 15
+
+Explanation: i is initialized to 10.The condition in the if block, (10 < 15) is checked which is evaluated to true. Therefore the statement inside if block, “10 is less than 15” gets printed. If the condition was evaluated to false, all the statements inside the if block will be skipped.
+
+
+Syntax
+if (condition) {
+   // Statements to execute if
+   // condition is true
+}
+
+The if statement condition can be anything that evaluates to a boolean value or a boolean converted value. We generally use relational and equality operator to specify the condition.
+
+
+Working of if Statement in C++
+
+The working of if statement is as follows:
+
+Control falls into the if block.
+The flow jumps to Condition.
+Condition is tested.
+If Condition yields true, goto Step 4.
+If Condition yields false, goto Step 5.
+The if-block or the body inside the if is executed.
+Flow steps out of the if block.
+
+Examples of if Statement in C++
+The below example demonstrate how to use if statement to change the flow of the program in 
+C++:
+
+Check if the Given Number is Even
+Even number can checked for its eveness by checking its remainder after division with 2.
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n = 8;
+
+    // Condition to check for even number
+    if (n % 2 == 0)
+        cout << " Even";        
+
+    return 0;
+}
+
+Output
+ Even
+
+You may have noticed that we skipped using the braces for the body of the if statement. If we do not provide the curly braces ‘{‘ and ‘}’ after if( condition ) then by default if statement will consider the immediate one statement to be inside its block.
+
+Check if an Integer is Less than 10 and is Even
+
+To check for multiple conditions, the if statements can be nested inside one another.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n = 8;
+
+    // Condition to check for even number
+    if (n % 2 == 0) {
+          
+          // Condition to check for less than 10
+          if (n < 10) {
+        cout << "Even and less than 10";
+        }
+    }
+
+    return 0;
+}
+
+Output
+Even and less than 10
+
+
+Check if an Integer Lies in the Range
+
+Checking whether the number lies in the range needs two comparison. One for upper limit and other for lower limit.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n = 5;
+
+    // Check whether n is the range [0, 10]
+    if (n <= 10 && n >= 0) {
+        cout << "In range";
+    }
+
+    return 0;
+}
+
+Output
+5 is in the range [10, 20]
