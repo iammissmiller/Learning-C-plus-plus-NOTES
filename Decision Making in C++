@@ -1,0 +1,25 @@
+Decision Making in C++
+
+Decision-making is the process to make a decision about which part of the code should be executed or not based on some condition. Decision-making in C++ involves the usage of conditional statements (also called decision control statements) to execute specific blocks of code primarily based on given situations and their results.
+
+Types of Decision-Making Statements in C++
+In C++, the following decision-making statements are available:
+
+
+Table of Content
+
+if in C++
+
+if-else in C++
+
+if-else if Ladder in C++
+
+Nested if-else in C++
+
+Switch Statement in C++
+
+Ternary Operator ( ? : ) in C++
+
+Jump Statements in C++
+
+Let's see how to use each of them in our C++ program.
