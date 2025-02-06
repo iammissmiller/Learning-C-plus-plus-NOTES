@@ -1,0 +1,67 @@
+C++ if else Statement
+
+The if statement alone tells us that if a condition is true it will execute a block of statements and if the condition is false, it won’t. But what if we want to do something else if the condition is false. Here comes the C++ if else statement. We can use the else statement with if statement to execute a block of code when the condition is false.
+
+Let’s take a look at an example:
+
+#include <iostream> 
+using namespace std; 
+  
+int main()  { 
+    int i = 10; 
+  
+    // If statement
+    if (i < 15) { 
+        cout << "10 is less than 15"; 
+    }
+  
+      // Else statement with the above if
+      else {
+          cout << "10 is not less than 15";
+    }
+  
+    return 0;
+}
+
+Output
+10 is less than 15
+Explanation: The condition in the if block checks if 10 is less than 15. Its true so the statement inside if block, “10 is less than 15” gets printed and else block is skipped. If the condition was false, all the statements inside the if block will be skipped and else block will be executed.
+
+Syntax
+if (condition) {
+    // Executes this block if
+    // condition is true
+}
+else {
+    // Executes this block if
+    // condition is false
+}
+
+
+The if statement condition can be anything that evaluates to a boolean value or a boolean converted value. We generally use relational and equality operator to specify the condition.
+
+Working of if-else statement
+
+Control falls into the if block.
+
+The flow jumps to Condition.
+
+Condition is tested.
+
+If Condition yields true, goto 
+
+Step 4.
+
+If Condition yields false, goto 
+
+Step 5.
+
+The if-block or the body inside the if is executed.
+
+The else block or the body inside the else is executed.
+
+Flow exits the if-else block.
+
+
+Flowchart of if-else in C++
+
