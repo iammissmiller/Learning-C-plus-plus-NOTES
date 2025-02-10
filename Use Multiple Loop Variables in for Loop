@@ -1,0 +1,34 @@
+Use Multiple Loop Variables in for Loop
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+  
+    // Defining two variable
+    int m, n;
+
+    // Loop having multiple variable and updations
+    for (m = 1, n = 1; m <= 3; m += 1, n += 2) {
+        cout << "iteration " << m << endl;
+        cout << "m is: " << m << endl;
+        cout << "j is: " << n << endl;
+    }
+
+    return 0;
+}
+
+Output
+iteration 1
+m is: 1
+j is: 1
+iteration 2
+m is: 2
+j is: 3
+iteration 3
+m is: 3
+j is: 5
+
+
+Explanation: The above program uses for loop with multiple variables (here m and n). It increments and updates both variables in each iteration and prints their respective values.
