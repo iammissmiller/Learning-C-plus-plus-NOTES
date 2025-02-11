@@ -1,0 +1,37 @@
+Range-Based for Loop in C++
+
+In C++, the range-based for loop introduced in C++ 11 is a version of for loop that is able to iterate over a range. This range can be anything that is iteratable, such as arrays, strings and STL containers. It provides a more readable and concise syntax compared to traditional for loops.
+
+Let’s take a look at an example:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1, 2, 3, 4, 5};
+
+    // Iterating through vector
+    for (int i : v) {
+        cout << i << " ";
+    }
+  
+    return 0;
+}
+
+Output
+1 2 3 4 5 
+
+Explanation: In this program, the vector is iterated using range based for loop. As we can see, we don’t need to pass any size information or any iterator to iterate the vector. We just use the name of the vector.
+
+Syntax of Range Based for Loop
+for (declaration: range) {
+    // statements
+}
+
+
+where,
+
+declaration: Declaration of the variable that will be used to represent each element of the rage.
+range: Name of the range.
+The range-based for loop simplifies iteration over containers in C++.
