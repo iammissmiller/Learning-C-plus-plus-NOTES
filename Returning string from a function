@@ -1,0 +1,20 @@
+Returning string from a function:
+
+This can be done by using the function “std::string”
+
+#include <iostream>
+#include <string>
+
+std::string getGreeting() {
+    return "This is  C++";
+}
+
+int main() {
+    std::string greeting = getGreeting();
+    std::cout << greeting << std::endl;
+    return 0;
+}
+
+Output
+This is  C++
+
