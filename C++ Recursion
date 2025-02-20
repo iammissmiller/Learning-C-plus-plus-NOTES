@@ -1,0 +1,119 @@
+C++ Recursion
+
+When function is called within the same function, it is known as recursion in C++. The function which calls the same function, is known as recursive function.
+A function that calls itself, and doesn’t perform any task after function call, is known as tail recursion. In tail recursion, we generally call the same function with return statement.
+Syntax:
+
+We have Direct recursion and in direct recursion
+
+1. Direct Recursion:
+
+it can be done when the function calls itself
+
+#include <iostream>
+using namespace std;
+
+void directRecursion(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        directRecursion(n - 1); // Function calls itself
+    }
+}
+
+int main() {
+    directRecursion(10);
+    return 0;
+}
+
+Output
+5 4 3 2 1 
+
+
+2. Indirect Recursion
+
+In this One function calls another function .
+
+#include <iostream>
+using namespace std;
+
+void indirectRecursionB(int n); // Forward declaration
+
+void indirectRecursionA(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        indirectRecursionB(n - 1); // Function A calls Function B
+    }
+}
+
+void indirectRecursionB(int n) {
+    if (n > 1) {
+        cout << n << " ";
+        indirectRecursionA(n / 2); // Function B calls Function A
+    }
+}
+
+int main() {
+    indirectRecursionA(10);
+    return 0;
+}
+
+
+Output
+10 9 4 3 1 
+
+
+Tail Recursion and Non-Tail Recursion:
+
+1. Tail Recursion:
+
+Tail recursion occurs when a function makes a recursive call as its last operation,
+
+#include <iostream>
+using namespace std;
+
+void tailRecursion(int n) {
+    if (n > 0) {
+        cout << n << " ";
+        tailRecursion(n - 1); // Recursive call is the last operation
+    }
+}
+
+int main() {
+    tailRecursion(15);
+    return 0;
+}
+
+Output
+15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 
+
+
+
+2. Non-Tail Recursion
+
+Non-tail recursion occurs when a function performs some operations after the recursive call.
+
+#include <iostream>
+using namespace std;
+
+int nonTailRecursion(int n) {
+    if (n > 0) {
+        return n + nonTailRecursion(n - 1); // Recursive call is not the last operation
+    } else {
+        return 0;
+    }
+}
+
+int main() {
+    int result = nonTailRecursion(20);
+    cout << "Result: " << result << endl;
+    return 0;
+}
+
+Output
+Result: 210
+
+
+
+
+
+
