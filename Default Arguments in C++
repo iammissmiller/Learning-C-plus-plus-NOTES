@@ -1,0 +1,54 @@
+Default Arguments in C++
+
+A default argument is a value provided for a parameter in a function declaration that is automatically assigned by the compiler if the calling function doesn’t provide a value for those parameters. If the value is passed for it, the default value is overridden by the passed value.
+
+Let’s take a look at an example:
+
+
+#include <iostream>
+using namespace std;
+
+// Function with an argument with default value
+void f(int a = 10) {
+    cout << a << endl;
+}
+
+int main() {
+      
+      // Uses default argument
+      f();
+  
+      // Uses passed value
+      f(221);
+  
+    return 0;
+}
+
+
+Output
+
+10
+221
+
+
+Explanation: In the first call, we passed no value to the function, so the default value is used. In the second, we passed a value which is then used in the function.
+
+This article explains the basics of default arguments, its usage in various common cases, and also answers some commonly asked queries:
+
+
+
+Table of Content
+
+Syntax of Default Arguments
+
+Rules for Using Default Arguments
+
+Example of Default Arguments
+
+Function to Area of a Rectangle with Optional Height without Function Overloading
+
+Add Default and Parameterized Constructor in a Single Function
+
+
+
+
