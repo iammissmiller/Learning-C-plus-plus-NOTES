@@ -1,0 +1,125 @@
+Syntax of Default Arguments
+
+A default argument is defined by assigning a value to a function parameter in its declaration.
+
+return_type name (p1= v1, p2= v2, …);
+
+
+where v1, v2 and more are the default values for the parameters p1, p2 and so on.
+
+Using default arguments can simplify your function calls.
+
+Rules for Using Default Arguments
+There are some important rules and best practices to keep in mind when using default arguments in C++:
+
+1. Default Values Must Be Specified in Function Declarations
+
+The default values for parameters must be specified in the function declaration (or prototype). If a function is declared and defined separately, the default values must be in the declaration, not in definition.
+
+
+2. Default Arguments Cannot Be Modified
+
+Once default arguments are defined, they cannot be modified in the function definition. If you try to change the default value in the definition, it will result in a compilation error.
+
+
+3. Default Arguments Must Be Provided from Right to Left
+
+In a function with multiple parameters, default values must be provided from the rightmost parameter to the left. If a parameter has a default argument, all parameters to its right must also have default values.
+
+
+4. Ambiguity in Function Overloading
+
+If a function containing default arguments is overloaded, then we need to make sure it is not ambiguous to the compiler, otherwise it will throw an error. 
+
+
+
+Example of Default Arguments
+
+The following examples demonstrate the use of default arguments in different cases:
+
+Function to Area of a Rectangle with Optional Height without Function Overloading
+
+The default arguments help in simplifying the function overloading by specifying optional values.
+
+
+#include <iostream>
+using namespace std;
+
+// Function with default height 'h' argument
+double calcArea(double l, double h = 10.0) {
+    return l * h;
+}
+
+int main() {
+  
+      // Uses default height
+    cout << calcArea(5) << endl;
+  
+      // Uses custom height
+    cout << calcArea(5, 7);
+    return 0;
+}
+
+
+Output
+50
+35
+
+
+Add Default and Parameterized Constructor in a Single Function
+
+Just like normal functions, we can also define default values for the arguments of parameterized constructors. All the rules of the default arguments will be applied to these parameters.
+
+
+#include <iostream>
+using namespace std;
+
+// class
+class A {
+public:
+    int data;
+
+      // Parameterized constructor with default values
+    A(int x = 5) { data = x; }
+};
+
+int main() {
+
+    A a1; // Will not throw error
+
+    A a2(25);
+
+    cout << a1.data << endl;
+    cout << a2.data;
+
+    return 0;
+}
+
+
+Output
+5
+25
+
+
+
+Advantages of Default Arguments
+
+Default arguments are useful when we want to increase the capabilities of an existing function as we can do it just by adding another default argument to the function.
+
+It helps in reducing the size of a program.
+
+It provides a simple and effective programming approach.
+
+Default arguments improve the consistency of a program.
+
+
+Disadvantages of Default Arguments
+
+If the default values are not well-documented or understood, it can lead to confusion about what arguments are being used.
+
+Overloading functions with default arguments can sometimes lead to ambiguities.
+
+It increases the execution time as the compiler needs to replace the omitted arguments by their default values in the function call.
+
+
+
