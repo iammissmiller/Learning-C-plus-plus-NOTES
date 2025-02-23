@@ -1,0 +1,270 @@
+C++ Recursion
+
+Recursion in C++ is a technique in which a function calls itself repeatedly until a given condition is satisfied. In other words, recursion is the process of solving a problem by breaking it down into smaller, simpler sub-problems.
+
+Syntax Structure of Recursion
+return_type recursive_func {
+    ....
+       // Base Condition
+       // Recursive Case
+       ....
+}
+
+Recursive Function
+A function that calls itself is called a recursive function. When a recursive function is called, it executes a set of instructions and then calls itself to execute the same set of instructions with a smaller input. This process continues until a base case is reached, which is a condition that stops the recursion and returns a value.
+
+Base Condition
+The base condition is the condition that is used to terminate the recursion. The recursive function will keep calling itself till the base condition is satisfied.
+
+Recursive Case
+Recursive case is the way in which the recursive call is present in the function. Recursive case can contain multiple recursive calls, or different parameters such that at the end, the base condition is satisfied and the recursion is terminated.
+
+Example of C++ Recursion
+The following C++ program illustrates how to perform recursion.
+
+
+// C++ Program to calculate the sum of first N natural
+// numbers using recursion
+#include <iostream>
+using namespace std;
+
+int nSum(int n)
+{
+    // base condition to terminate the recursion when N = 0
+    if (n == 0) {
+        return 0;
+    }
+
+    // recursive case / recursive call
+    int res = n + nSum(n - 1);
+
+    return res;
+}
+
+int main()
+{
+    int n = 5;
+
+    // calling the function
+    int sum = nSum(n);
+
+    cout << "Sum = " << sum;
+    return 0;
+}
+
+
+
+Output
+Sum = 15
+
+In the above example,
+
+Recursive Function: nSum() is the Recursive Function
+Recursive Case: The expression, int res = n + nSum(n – 1) is the Recursive Case.
+Base Condition: The base condition is if (n == 0) { return 0;}
+Working of Recursion in C++
+To understand how C recursion works, we will again refer to the example above and trace the flow of the program.
+
+1. In the nSum() function, Recursive Case is
+
+int res = n + nSum(n - 1);
+2. In the example, n = 5, so as nSum(5)’s recursive case, we get
+
+int res = 5 + nSum(4);
+3. In nSum(4), the recursion case and everything else will be the same, but n = 4. Let’s evaluate the recursive case for n = 4,
+
+int res = 4 + nSum(3);
+4. Similarly, for nSum(3), nSum(2) and nSum(1)
+
+int res = 3 + nSum(2);    // nSum(3)
+int res = 2 + nSum(1);    // nSum(2)
+int res = 1 + nSum(0);    // nSum(1)
+Let’s not evaluate nSum(0) and further for now.
+
+5. Now recall that the return value of the nSum() function in this same integer named res. So, instead of the function, we can put the value returned by these functions. As such, for nSum(5), we get
+
+int res = 5 + 4 + nSum(3);
+6. Similarly, putting return values of nSum() for every n, we get
+
+int res = 5 + 4 + 3 + 2 + 1 + nSum(0);
+
+7. In nSum() function, the base condition is
+
+if (n == 0) {
+    return 0;
+}
+which means that when nSum(0) will return 0. Putting this value in nSum(5)’s recursive case, we get
+
+int res = 5 + 4 + 3 + 2 + 1 + 0;
+        = 15
+8. At this point, we can see that there are no function calls left in the recursive case. So the recursion will stop here and the final value returned by the function will be 15 which is the sum of the first 5 natural numbers.
+
+
+Memory Management in C++ Recursion
+
+Like all other functions, the recursive function’s data is stored in the stack memory in the form of a stack frame. This stack frame is deleted once the function returns some value. In recursion,
+
+The function call is made before returning the value, so the stack frame for the progressive recursive calls is stored on top of existing stack frames in the stack memory.
+When the topmost function copy returns some value, its stack frame is destroyed and the control comes to the function just before that particular copy after the point where the recursive call was made for the top copy.
+The compiler maintains an instruction pointer to track where to return after the function execution.
+Let’s consider the above example and understand the memory management of nSum(5) function.
+
+Step 1: When nSum() is called from the main() function with 5 as an argument, a stack frame for nSum(5) is created.
+
+Step 2: While executing nSum(5), a recursive call is encountered as nSum(4). The compiler will now create a new stack frame on top of the nSum(5)’s stack frame and maintain an instruction pointer at the statement where nSum(4) was encountered.
+
+Step 3: The execution of nSum(4) will start, but just like the previous function, we encounter another recursive call as nSum(3). The compiler will again follow the same steps and maintain another instruction pointer and stack frame for nSum(3).
+
+Step 4: The same thing will happen with nSum(3), nSum(2), and nSum(1)’s execution.
+
+Step 5: But when the control comes to nSum(0), the condition (n == 0) becomes true and the statement return 0 is executed.
+
+Step 6: As the value is returned by the nSum(0), the stack frame for the nSum(0) will be destroyed, and using the instruction pointer, the program control will return to the nSum(1) function and the nSum(0) call will be replaced by value 0.
+
+Step 7: Now, in nSum(1), the expression int res = 1 + 0 will be evaluated and the statement return res will be executed. The program control will move to the nSum(2) using its instruction pointer.
+
+Step 8: In nSum(2), nSum(1) call will be replaced by the value it returned, which is 1. So, after evaluating int res = 2 + 1, 3 will be returned to nSum(3). Same thing will keep happening till the control comes to the nSum(5) again.
+
+Step 9: When the control reaches the nSum(5), the expression int res = 5 + nSum(4) will look like int res = 5 + 10. Finally, this value will be returned to the main() function and the execution of nSum() function will stop.
+
+
+
+What is Stack Overflow?
+Stack overflow is one of the most common errors associated with the recursion which occurs when a function calls itself too many times. As we know that each recursive call requires separate space in the limited stack memory. When there is a large number of recursive calls or recursion goes on infinite times, this stack memory may get exhausted and may not be able to store more data leading to programs’ termination.
+
+Types of Recursion in C++
+There are two different types of recursion which are as follows:
+
+Direct Recursion
+Indirect Recursion
+1. Direct Recursion
+In direct recursion, the function contains one or more recursive calls to itself. The function directly calls itself in the direct recursion and there is no intermediate function. Direct recursion can also be classified into three types based on how and how many recursive calls are present in the body of the function.
+
+a) Head Recursion: In head recursion, the recursive call is present at the start of the function. It is a kind of linear recursion where only a single recursive call is used.
+
+b) Tail Recursion: Tail recursion is a linear recursion where it’s one and only recursive call is present at the end of the function. The recursive call is generally the last statement in the function. The significance of tail recursion is that we can reduce its memory consumption by using tail call optimization.
+
+c) Tree Recursion: In Tree Recursion, there are multiple recursive calls present in the body of the function. While tracing tree recursion, we get a tree-like structure where multiple recursive calls branch from one function.
+
+2. Indirect Recursion
+In indirect recursion, the function does not call itself directly but instead, it calls another function which then eventually calls the first function creating a cycle of function calls.
+
+Examples of Recursion in C++
+The following examples will improve the understanding of C++ recursion:
+
+Example 1: Fibonacci Series using Recursion
+
+// C++ Program to find fibonacci series using recursion
+#include <iostream>
+using namespace std;
+
+// Function for fibonacci
+int fib(int n)
+{
+    // Stop condition
+    if (n == 0)
+        return 0;
+    // Stop condition
+    if (n == 1 || n == 2)
+        return 1;
+    // Recursion function
+    else
+        return (fib(n - 1) + fib(n - 2));
+}
+
+// Driver Code
+int main()
+{
+    // Initialize variable n.
+    int n = 5;
+    cout << "Fibonacci series of 5 numbers is: ";
+    // for loop to print the fibonacci series.
+    for (int i = 0; i < n; i++) {
+        cout << fib(i) << " ";
+    }
+    return 0;
+}
+
+
+Output
+Fibonacci series of 5 numbers is: 0 1 1 2 3 
+In this example, the Fibonacci function calls itself with smaller inputs (n – 1 and n – 2) until it reaches the base case (n <= 1) and returns a value.
+
+Example 2: Print Array in reverse order using recursion.
+
+// C++ Program to print array using
+// recursion
+#include <iostream>
+using namespace std;
+
+// recursive function to print array
+void pArray(int* arr, int n)
+{
+    // base condition
+    if (n == 0) {
+        return;
+    }
+    // recursive call
+    cout << arr[n - 1] << ' ';
+    pArray(arr, n - 1);  
+}
+
+int main()
+{
+    // declaring array
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    // calling function
+    pArray(arr, 5);
+    return 0;
+}
+
+Output
+5 4 3 2 1
+
+
+Applications of Recursion
+
+Recursion has many applications in computer science and programming. Here are some of the most common applications of recursion:
+
+Solving: Fibonacci sequences, Factorial Function, Reversing an array, Tower of Hanoi.
+
+Backtracking: It is a technique for solving problems by trying out different solutions and undoing them if they do not work. Recursive algorithms are often used in backtracking.
+
+Searching and Sorting Algorithms: Many searching and sorting algorithms, such as binary search and quicksort, use recursion to divide the problem into smaller sub-problems.
+
+Tree and Graph Traversal: Recursive algorithms are often used to traverse trees and graphs, such as depth-first search and breadth-first search.
+
+Mathematical Computations: Recursion is also used in many mathematical computations, such as the factorial function and the Fibonacci sequence.
+
+
+Dynamic Programming: It is a technique for solving optimization problems by breaking them down into smaller sub-problems. Recursive algorithms are often used in dynamic programming.
+Overall, recursion is a powerful and versatile technique that can be used to solve a wide range of problems in programming and computer science.
+
+
+
+Drawbacks of Recursion
+
+Performance: Recursive algorithms can be less efficient than iterative algorithms in some cases, particularly if the data structure is large or if the recursion goes too deep.
+
+Memory usage: Recursive algorithms can use a lot of memory, particularly if the recursion goes too deep or if the data structure is large. Each recursive call creates a new stack frame on the call stack, which can quickly add up to a significant amount of memory usage.
+
+Code complexity: Recursive algorithms can be more complex than iterative algorithms.
+Debugging: Recursive algorithms can be more difficult to debug than iterative algorithms, particularly if the recursion goes too deep or if the program is using multiple recursive calls.
+
+Stack Overflow: If the recursion goes too deep, it can cause a stack overflow error, which can crash the program.
+
+
+Summary
+
+There are two types of cases in recursion i.e. recursive case and a base case.
+
+Infinite recursion may lead to running out of stack memory.
+
+Each recursive call makes a new copy of that method in the stack memory.
+
+The base case is used to terminate the recursive function when the case turns out to be true.
+
+Examples of Recursive algorithms: Merge Sort, Quick Sort, Tower of Hanoi, Fibonacci Series, Factorial Problem, etc.
+
+
+
