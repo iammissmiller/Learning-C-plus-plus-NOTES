@@ -1,0 +1,35 @@
+Update Array Element
+
+To update an element in an array, we can use the index which we want to update enclosed within the array subscript operator and assign the new value.
+
+arr[i] = new_value;
+
+Traverse an Array in C++
+We can traverse over the array with the help of a loop using indexing in C++. First, we have initialized an array ‘table_of_two’ with a multiple of 2. After that, we run a for loop from 0 to 9 because in an array indexing starts from zero. Therefore, using the indices we print all values stored in an array.
+
+Example 2: The C++ Program to Illustrate How to Traverse an Array
+
+// C++ Program to Illustrate How to Traverse an Array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    // Initialize the array
+    int table_of_two[10]
+        = { 2, 4, 6, 8, 10, 12, 14, 16, 18, 20 };
+
+    // Traverse the array using for loop
+    for (int i = 0; i < 10; i++) {
+        // Print the array elements using indexing
+        cout << table_of_two[i] << " ";
+    }
+
+    return 0;
+}
+
+
+Output
+2 4 6 8 10 12 14 16 18 20
+
