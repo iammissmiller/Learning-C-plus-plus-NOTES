@@ -1,0 +1,29 @@
+Array Name as Pointers
+
+An array name contains the address of the first element of the array which acts like a constant pointer. It means, the address stored in the array name can’t be changed. For example, if we have an array named val then val and &val[0] can be used interchangeably. 
+
+
+// C++ program to illustrate Array Name as Pointers
+#include <bits/stdc++.h>
+using namespace std;
+void geeks()
+{
+    // Declare an array
+    int val[3] = { 5, 10, 20 };
+
+    // declare pointer variable
+    int* ptr;
+
+    // Assign the address of val[0] to ptr
+    // We can use ptr=&val[0];(both are same)
+    ptr = val;
+    cout << "Elements of the array are: ";
+    cout << ptr[0] << " " << ptr[1] << " " << ptr[2];
+}
+// Driver program
+int main() { geeks(); }
+
+
+Output
+Elements of the array are: 5 10 20
+
