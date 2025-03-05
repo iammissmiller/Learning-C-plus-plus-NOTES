@@ -1,0 +1,125 @@
+How to Take String Input in C++
+
+String input means accepting a string from a user. In C++. We have different types of taking input from the user which depend on the string. The most common way is to take input with cin keyword with the extraction operator (>>) in C++. Methods to take a string as input are:
+
+cin
+getline
+stringstream
+1. Using Cin
+The simplest way to take string input is to use the cin command along with the stream extraction operator (>>). 
+
+Syntax:
+
+cin>>s;
+
+
+Example:
+
+
+// C++ Program to demonstrate string input using cin
+#include <iostream>
+using namespace std;
+
+int main() {
+
+      string s;
+      
+    cout<<"Enter String"<<endl;
+      cin>>s;
+  
+      cout<<"String is: "<<s<<endl;
+    return 0;
+}
+
+
+Output
+Enter String
+String is: 
+Output:
+
+Enter String
+GeeksforGeeks
+String is: GeeksforGeeks
+
+
+
+
+2. Using getline 
+
+The getline() function in C++ is used to read a string from an input stream. It is declared in the <string> header file.
+
+Syntax:
+
+getline(cin,s);
+
+
+Example:
+
+// C++ Program to demonstrate use of getline function
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    string s;
+    cout << "Enter String" << endl;
+    getline(cin, s);
+    cout << "String is: " << s << endl;
+    return 0;
+}
+
+
+Output
+Enter String
+String is: 
+Output:
+
+Enter String
+GeeksforGeeks
+String is: GeeksforGeeks
+
+
+
+3. Using stringstream
+The stringstream class in C++ is used to take multiple strings as input at once. 
+
+Syntax:
+
+stringstream stringstream_object(string_name);
+
+Example:
+
+
+// C++ Program to demonstrate use of stringstream object
+#include <iostream>
+#include <sstream>
+#include<string>
+
+using namespace std;
+
+int main()
+{
+
+    string s = " GeeksforGeeks to the Moon ";
+    stringstream obj(s);
+    // string to store words individually
+    string temp;
+    // >> operator will read from the stringstream object
+    while (obj >> temp) {
+        cout << temp << endl;
+    }
+    return 0;
+}
+
+Output
+GeeksforGeeks
+to
+the
+Moon
+
+
+
+
+
+
