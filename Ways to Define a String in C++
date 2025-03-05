@@ -1,0 +1,97 @@
+Ways to Define a String in C++
+
+Strings can be defined in several ways in C++. Strings can be accessed from the standard library using the string class. Character arrays can also be used to define strings. String provides a rich set of features, such as searching and manipulating, which are commonly used methods. Despite being less advanced than the string class, this method is still widely used, as it is more efficient and easier to use. Ways to define a string in C++ are:
+
+Using String keyword
+Using C-style strings
+1. Using string Keyword
+It is more convenient to define a string with the string keyword instead of using the array keyword because it is easy to write and understand.
+
+Syntax:
+
+string s = "GeeksforGeeks";
+string s("GeeksforGeeks");
+
+
+Example:
+
+
+// C++ Program to demonstrate use of string keyword
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    string s = "GeeksforGeeks";
+    string str("GeeksforGeeks");
+
+    cout << "s = " << s << endl;
+    cout << "str = " << str << endl;
+
+    return 0;
+}
+
+
+Output
+s = GeeksforGeeks
+str = GeeksforGeeks
+
+
+2. Using C-style strings
+Using C-style string libraries functions such as strcpy(), strcmp(), and strcat() to define strings. This method is more complex and not as widely used as the other two, but it can be useful when dealing with legacy code or when you need performance.
+
+char s[] = {'g', 'f', 'g', '\0'};
+char s[4] = {'g', 'f', 'g', '\0'};
+char s[4] = "gfg";
+char s[] = "gfg";
+
+Example:
+
+
+// C++ Program to demonstrate C-style string declaration
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    char s1[] = { 'g', 'f', 'g', '\0' };
+    char s2[4] = { 'g', 'f', 'g', '\0' };
+    char s3[4] = "gfg";
+    char s4[] = "gfg";
+
+    cout << "s1 = " << s1 << endl;
+    cout << "s2 = " << s2 << endl;
+    cout << "s3 = " << s3 << endl;
+    cout << "s4 = " << s4 << endl;
+
+    return 0;
+}
+
+
+Output
+s1 = gfg
+s2 = gfg
+s3 = gfg
+s4 = gfg
+
+
+Another example of C-style string:
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string S = "Geeeks for Geeks";
+    cout << "Your string is= ";
+    cout << S << endl;
+
+    return 0;
+}
+
+Output
+Your string is= Geeeks for Geeks
+
