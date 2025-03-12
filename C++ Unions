@@ -1,0 +1,266 @@
+C++ Unions
+
+In C++, a union is a user-defined data types that allow you to store different types of data in the same memory location but unlike structures, where each member gets its own memory, union members share the same memory space making unions more memory-efficient for specific use cases.
+
+
+
+Create a Union
+
+A union, just like other user defined data type, have to be defined before we can use it.
+
+union union_Name {
+    type1 member1;
+    type2 member2;
+    .
+    .
+};
+
+After that, we can create variables of the union as shown:
+
+union_name var_name;
+
+
+Union variables can also be declared with the definition.
+
+union union_Name {
+    type1 member1;
+    type2 member2;
+    .
+    .
+}var_name;
+
+
+
+Access and Assign
+
+The union members can be accessed using the (.) dot operator just like structure members. A value can be assigned to the member using = assignment operator.
+
+
+union_var.member1 = value;
+
+All members share the same memory, so at one time, only one element can store a valid value. Accessing value through other variable may lead to undefined behaviour.
+
+
+
+Example:
+
+
+#include <iostream>
+using namespace std;
+
+
+
+// Creating a union
+union geek {
+    int age;
+    char grade;
+    float GPA;
+};
+
+int main() {
+
+    // Defining a union variable
+    union geek student1;
+
+    // Assigning values to data member of union geek and
+    // printing the values of data members
+    student1.age = 25;
+    cout << student1.age << endl;
+    student1.grade = 'B';
+    cout << student1.grade << endl;
+    student1.GPA = 4.5;
+    cout <<  student1.GPA;
+
+
+
+    return 0;
+}
+
+
+Output
+25
+B
+4.5
+
+
+
+Size of Union
+
+All the elements of the union are stored in the same memory location. So, if the size of the union is equal to the size of the largest element, it would be able to store the largest member, smallest member and all members in between in the same memory location. This can be verified in the below example:
+
+
+#include <iostream>
+using namespace std;
+
+
+
+union geek {
+    int age;
+    float GPA;
+    double marks;
+};
+
+int main() {
+    geek g;
+
+    // Printing size of the union
+    cout << sizeof(g) << endl;
+    
+    // Printing size of all members
+    cout << sizeof(g.age) << endl;
+    cout << sizeof(g.GPA) << endl;
+    cout << sizeof(g.marks);
+
+
+
+    
+    return 0;
+}
+
+
+Output
+8
+4
+4
+8
+
+
+
+Nested Unions
+
+
+A union can be defined within a structure, class or another union, known as a nested union. This approach helps efficiently organize and access related data while sharing memory among the union’s members.
+
+Syntax
+
+union outer {
+    union inner {
+        type member;
+    };
+}
+
+
+Nested members are then accessed by using (.) dot operator.
+
+
+outer.inner.member
+
+
+Example:
+
+
+#include <iostream>
+using namespace std;
+
+
+
+// Define a structure containing a nested union
+struct Employee {
+    char name[50];
+    int id;
+
+    // Nested union
+    union pay {
+        float hourlyRate;
+
+        float salary;
+    } payment;
+};
+
+int main() {
+    struct Employee e1;
+    e1.id = 101;
+    
+    // Access nested union member
+    e1.payment.hourlyRate = 300;
+
+
+
+
+    cout << "Employee ID: " << e1.id << "
+";
+    cout << "Hourly Rate: Rs " << e1.payment.hourlyRate;
+    return 0;
+}
+
+
+
+
+Anonymous Unions
+
+
+Anonymous unions are those unions that are declared without any name inside a main function. As we do not define any union name, we can directly access the data members of the union that is why their members must be declared with unique names to avoid ambiguity in the current scope.
+
+They are mostly used in nested unions where they can be accessed as if they are the members of the outer union/structure.
+
+
+Example:
+
+
+#include <iostream>
+using namespace std;
+
+
+
+struct Employee {
+    int id;
+
+    // Anonymous union
+    union {
+        float hourlyRate;
+        float salary;
+    };
+};
+
+int main() {
+    struct Employee e1;
+    e1.id = 101;
+    
+    // Accessing nested member
+    e1.hourlyRate = 300;
+
+
+
+
+    cout << "Employee ID: " << e1.id << "
+";
+    cout << "Hourly Rate: Rs " << e1.hourlyRate;
+    return 0;
+}
+
+
+
+Output
+
+Employee ID: 101
+Hourly Rate: Rs 300
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
