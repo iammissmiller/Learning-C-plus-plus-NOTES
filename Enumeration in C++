@@ -1,0 +1,230 @@
+Enumeration in C++
+
+
+In C++, enumeration is a user-defined data type that consists of a set of named integer constants. It helps in assigning meaningful names to integer values to improve code readability and maintainability.
+
+
+Create Enum
+
+An enum needs to be defined before we can create its variables.
+
+
+enum enum_name { 
+    name1, name2, name3, ... 
+};
+
+where name1, name2, …. are the names for the constant. They should be unique identifiers. By default, the first name in an enum is assigned the integer value 0, and the subsequent ones are incremented by 1.
+
+After that, we can create a variable of this enum and assign it some name constant that was defined in it.
+
+
+enum_name var;
+
+
+Initializing Enum
+
+An enum variable should be initialized by either the name defined in enum definition or directly its integer value.
+
+
+
+#include <iostream>
+using namespace std;
+
+
+
+// Defining enum
+enum direction {
+    EAST, NORTH, WEST, SOUTH
+};
+
+int main() {
+
+    // Creating enum variable
+    direction dir = NORTH;
+    cout << dir;
+
+
+
+    return 0;
+}
+
+
+Output
+1
+
+
+Changing Values of Named Constant
+
+We can manually assign values to enum members if needed.
+
+
+enum enum_name { 
+    name1 = val1, name2 = val2, name3, ... 
+};`
+
+
+val1, val2 … values should be integer. It is also not compulsory to define the value of all constant names. If the current constant name value is x, then subsequent values will keep incrementing by one.
+
+Example:
+
+
+#include <iostream>
+using namespace std;
+
+
+
+// Defining enum
+enum fruit {
+    APPLE, BANANA = 5, ORANGE
+};
+
+int main() {
+
+    // Creating enum variable
+    fruit f = BANANA;
+    cout << f << endl;
+    
+    // Changing the value
+    f = ORANGE;
+
+
+
+    cout << f;
+    return 0;
+}
+
+
+Output
+5
+6
+
+
+
+
+Enum Classes
+
+C++11 introduced enum class, which provides better type safety. It helps in resolving name conflicts by providing scope to the constant names. It also requires manual typecasting to integer values from names.
+
+
+
+Create enum Class`
+
+Enum class can be created just by adding the class keyword in the enum delcaration.
+
+
+#include <iostream>
+using namespace std;
+
+
+
+// Define the enum class
+enum class Day { Sunday = 1, Monday, Tuesday,
+                Wednesday, Thursday, Friday, 
+                Saturday };
+
+int main() {
+    
+    // initializing
+    Day today = Day::Thursday;
+    
+    // Print the enum
+    cout << static_cast<int>(today);
+
+
+
+    return 0;
+}
+
+
+Output
+5
+
+
+If we try to just assign the name of the constant to the enum variable, compiler gives an error
+
+
+#include <iostream>
+using namespace std;
+
+// Define the enum class
+enum class Day { Sunday = 1, Monday, Tuesday,
+                Wednesday, Thursday, Friday, 
+                Saturday };
+
+int main() {
+    
+
+
+    // initializing
+    Day today = Thursday;
+
+
+
+    
+    // Print the enum
+    cout << static_cast<int>(today);
+    return 0;
+}
+
+
+Output
+
+error: ‘PROTON’ was not declared in this scope; did you mean ‘Charge::PROTON’?
+   14 |     Charge part = PROTON;
+      |                   ^~~~~~
+      |                   Charge::PROTON
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
