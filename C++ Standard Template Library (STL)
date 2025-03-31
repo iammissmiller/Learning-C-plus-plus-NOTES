@@ -1,0 +1,16 @@
+C++ Standard Template Library (STL)
+
+
+The C++ Standard Template Library (STL) is a set of template classes and functions that provides the implementation of common data structures and algorithms such as lists, stacks, arrays, sorting, searching, etc. It also provides the iterators and functors which makes it easier to work with algorithms and containers.
+
+STL was originally designed by Alexander Stepanov and was later accepted as the part of C++ standard in C++ 98. It is a generalized library so we can use it with almost every data type without repeating the implementation code.
+
+Components of STL
+The components of STL are the features provided by Standard Template Library (STL) in C++ that can be classified into 4 types:
+
+Containers
+Algorithms
+Iterators
+Functors
+
+These components are designed to be efficient, flexible, and reusable, making them an integral part of modern C++ programming.
