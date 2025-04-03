@@ -1,0 +1,11 @@
+Iterators
+
+Iterators are the pointer like objects that are used to point to the memory addresses of STL containers. They are one of the most important components that contributes the most in connecting the STL algorithms with the containers. Iterators are defined inside the <iterator> header file.
+
+In C++ STL, iterators are of 5 types:
+
+Input Iterators: Input Iterators can be used to read values from a sequence once and only move forward.
+Output Iterators: Output Iterators can be used to write values into a sequence once and only move forward.
+Forward Iterators: Forward Iterators combine the features of both input and output iterators.
+Bidirectional Iterators: Bidirectional Iterators support all operations of forward iterators and additionally can move backward.
+Random Access Iterators: Random Access Iterators support all operations of bidirectional iterators and additionally provide efficient random access to elements.
