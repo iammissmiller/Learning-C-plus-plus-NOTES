@@ -1,0 +1,196 @@
+C++ STL Algorithm Library
+
+Standard Template Library (STL) offers a rich collection of algorithms designed to operate on STL containers and beyond. It provides commonly used algorithms such as sorting, searching, copying, etc. These well tested algorithms are optimized for performance and provide a way to write cleaner, faster, and more readable code.
+
+These algorithms are defined in the <algorithm> and <numeric> header files.
+
+Type of Algorithms
+We can divide the algorithms into following parts:
+
+Non-Mutating Algorithms
+
+Mutating Algorithms
+
+
+
+
+1. Non-Mutating Algorithms
+
+Non-mutating algorithms perform operations on sequences of elements without modifying the elements themselves. They are primarily used to search and gather information about the elements in a range.
+
+The following table lists the non-mutating algorithms in C++:
+
+
+for_each()
+
+Applies a function to each element in a range.
+
+
+find()
+
+Find the first element which satisfying a specific criterion.
+
+
+find_if()
+
+Searches for the first element in a range that satisfies a given condition.
+
+
+count()
+
+Counts the number of occurrences of a specific value within a range.
+
+
+cout_if()
+
+Counts the number of elements in a range that satisfy a given condition.
+
+
+equal
+
+Check two ranges are equal one by one element.
+
+
+mismatch()
+
+Finds the first position where two ranges are different.
+
+
+all_of()
+
+Checks if all of the elements in a range satisfy a given condition.
+
+
+any_of()
+
+Checks if any of the elements in a range satisfy a given condition.
+
+
+none_of()
+
+Checks if none of the elements in a range satisfy a given condition.
+
+
+binary_serach(), lower_bound(), and upper_bound()
+
+These functions are used to find an element in the container in the log(n) time.
+
+
+accumulate()
+
+Find the sum of all elements present inside the container.
+
+
+
+
+2. Mutating Algorithms
+
+Mutating algorithm are those algorithms that update the elements within a range or change the order of elements.
+
+
+copy()
+
+This function creates a copy of container or a variable.
+
+
+copy_n()
+
+Copies a specified number of elements from one range to another range.
+
+
+copy_if()
+
+Copies elements from one range to another, but only if they satisfy a given condition.
+
+
+move()
+
+Move elements from one range to another.
+
+
+transform()
+
+It is used to apply the given operation to a range of elements and store the result in another range.
+
+
+fill()
+
+It is used to assign a specific value to all range of elements.
+
+
+generate()
+
+It is used to assign values to elements in a range by repeatedly calling a generator function.
+
+
+remove()
+
+It is used to remove a specific element.
+
+
+remove_if()
+
+It is used to remove a specific element for particular condition.
+
+
+replace()
+
+It is used to replace the element with new element.
+
+
+replace_if()
+
+It is used to replace the element with new element if that element is present.
+
+
+reverse()
+
+This function is used to reverse the container.
+
+
+rotate()
+
+It is used to rotate the elements of a range in left or right direction
+
+
+shuffle()
+
+This function is used to rearranges the elements in the given range.
+
+
+sort()
+
+This function is used to sort the container by default in ascending order.
+
+
+partial_sort()
+
+Used for sorting not the entire range, but only a sub-part of it.
+
+
+partition()
+
+This function is used to partition the elements on basis of condition.
+
+
+merge()
+
+Merge two sorted containers into one.
+
+
+stable_sort()
+
+Sort the elements of the container but keeps the relative order of elements.
+
+
+is_sorted()
+
+Check the container’s elements are store in sorted way.
+
+
+
+
+
+
+
+
