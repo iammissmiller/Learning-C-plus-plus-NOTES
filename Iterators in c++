@@ -1,0 +1,200 @@
+Introduction to Iterators in C++
+
+An iterator is an object like a pointer that points to an element inside the container. We can use iterators to move through the contents of the container. They can be visualized as something similar to a pointer pointing to some location and we can access the content at that particular location using them.
+
+Example:
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    vector<int> v = {1,2,3,4,5};
+    
+    // Get the iterator of first element
+    // of the vector
+    vector<int>::iterator it = v.begin();
+    
+    // Print the content of location which is 
+    // pointed by iterator (it)
+    cout << *it;
+    return 0;
+}
+
+Output
+1
+
+
+Explanation: The above example demonstrates accessing the first element of a vector container by first obtaining its iterator (it). Then dereference this iterator with the asterisk (*) operator, which outputs the value 1.
+
+Syntax
+cType::iterator iteratorName;
+
+
+
+where,
+
+cType: Container type.
+
+iteratorName: Named assign to the iterator.
+
+
+We can use auto keyword to skip to write container type because auto keyword automatically detected container type itself.
+
+
+
+Types of Iterators
+All iterators do not have similar functionality, depending upon the functionality of iterators they can be classified into five categories:
+
+Input Iterator
+
+Output Iterator
+
+Forward Iterator
+
+Bidirectional Iterator
+
+Random-Access Iterator
+
+
+
+
+Input
+
+It is a read only iterator but not modified the value using input iterator.
+
+
+Output
+
+Output iterator is used to assign the values.
+
+
+Forward
+
+It is the combination of input and output iterator means for both access and assigning the values.
+
+
+Bidirectional
+
+This iterator can move in both direction either in forward or backward. Alos it’s have all functionalities of forward iterators.
+
+
+Random-Access
+
+Random-access iterators are iterators that can be used to access the element at the distance from the element they pointed to. And it’s had all functionalities of bidirectional iterators.
+
+
+
+Not all of these iterators are supported by all containers in STL. Different containers support different iterators, like vectors support random-access iterators, while lists support bidirectional iterators. The whole list is as given below:
+
+
+
+Vector	Random-Access
+
+List	Bidirectional
+
+Deque	Random-Access
+
+Map	Bidirectional
+
+Multimap	Bidirectional
+
+Set	Bidirectional
+
+Multiset	Bidirectional
+
+Stack	No iterator Supported
+
+Queue	No iterator Supported
+
+Priority-Queue	No iterator Supported
+
+
+
+
+Iterators vs Pointers
+
+The main differences between Iterators and Pointers are given in the below table:
+
+Feature	   Iterators	Pointers
+
+Definition	
+
+Abstractions that allow traversal over containers.	
+
+Memory addresses that store the location of another variable.
+
+
+Usage	
+
+Used with STL containers (e.g., vector, list, map).	
+
+Used for direct memory manipulation.
+
+
+Flexibility	
+
+Can work with different types of containers.	
+
+Only works with raw memory and arrays.
+
+
+Operations	
+
+Support operations like increment (++), decrement (–), and dereferencing (*).
+	
+Can perform arithmetic operations (+, -, ++, –).
+
+
+Safety	
+
+Safer, as they provide bounds checking in STL containers.	
+
+Prone to segmentation faults due to out-of-bounds access.
+
+
+Container Compatibility	
+
+Can be used with STL containers efficiently.	
+
+Works with raw arrays and dynamically allocated memory.
+
+
+Performance	
+
+Slightly slower than pointers due to additional overhead.	
+
+Faster as they directly access memory.
+
+
+
+
+Advantages of Iterators
+
+There are following advantages of iterators listed below:
+
+Pointer Like Behavior: 
+
+If we have worked with pointers in C++, iterators will feel pretty familiar. We can increment them, dereference them to get the value, and compare them, just like pointers—making them easy to use and understand.
+
+
+Easy Traversal:
+
+We don’t have to manually manage indices or worry about going out of bounds. Using basic operations like ++ and *, we can move through containers without a second thought.
+
+
+Use in STL Algorithm: 
+
+The C++ Standard Library has a bunch of useful algorithms like sort, find, and accumulate that work seamlessly with iterators. This means we can apply these algorithms to any container, and the iterator handles all the internal stuff for us.
+
+
+Optimize for Task: 
+
+C++ gives different types of iterators, like forward, bidirectional, and random access. These options let we pick the right one for the job, which can lead to more efficient code if you know what you need.
+
+
+Reverse Traversal: 
+
+When we need to loop through a container in reverse order, iterators make it easy. We don’t have to manually adjust the order of the elements; we can simply use a reverse iterator to go through the container backwards.
