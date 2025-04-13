@@ -1,0 +1,393 @@
+Map in C++ STL
+
+In C++, maps are associative containers that store data in the form of key value pairs sorted on the basis of keys. No two mapped values can have the same keys. By default, it stores data in ascending order of the keys, but this can be changes as per requirement.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    // Creating a map of integer keys
+    // and string values
+    map<int, string> m {{1, "Geeks"},
+             {2,"For"}, {3,"Geeks"}};
+
+    for (auto& p : m)
+        cout << p.first << " " << p.second
+        << "\n";
+    return 0;
+}
+
+Output
+1 Geeks
+2 For
+3 Geeks
+
+
+Explanation: In the above program, we created a map m of integer keys and string values. We inserted three key-value pairs into the map: {1, “Geeks”}, {2, “For”}, and {3, “Geeks”}. The map automatically sorts the keys in ascending order.
+
+Syntax
+The map container is defined as std::map class template inside the <map> header file.
+
+map<key_type, value_type, comp> m;
+
+
+where,
+
+key_type: Data type of key.
+value_type: Data type of value.
+comp: Custom comparator function that defines how to compare two keys for sorting. It is optional and if not provided, sorts data in increasing order of the keys.
+m: Name assigned to map.
+
+
+Declaration and Initialization
+We can declare and initialize a map in different ways as shown in the below example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    // Creating an empty map
+    map<int, string> m1;
+
+    // Initialze map with list
+    map<int, string> m2 = {{1, "Geeks"},
+              {2, "For"}, {3, "Geeks"}};
+
+    for (auto& p : m2)
+        cout << p.first << " " <<
+        p.second << endl;
+    return 0;
+}
+
+Output
+1 Geeks
+2 For
+3 Geeks
+
+Example: In the above program,
+
+Statement map<int, string> m1 is an empty map with no elements.
+Statement map<int, string> m2 = {{1, “Geeks”}, {2, “For”}, {3, “Geeks”}} initialized to three key-value pairs using initializer list.
+To see more ways to declare and initialize map, refer to this article – Different Ways to Initialize a Map
+
+Basic Operations
+Basic operations on map containers are shown below:
+
+1. Inserting Elements
+
+Elements can be inserted into a map using either [] operator or insert() method. If the element with the given key already exists, the insert() method skips the insertion but [] operator updates the associated value to the new value.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{2, "For"}, {3, "Geeks"}};
+
+    // Inserting a key value pair
+    m.insert({1, "Geeks"});
+
+    for (auto x: m)
+        cout << x.first << " " << x.second
+        << endl;
+    return 0;
+}
+
+Output
+1 Geeks
+2 For
+3 Geeks
+
+We cannot specify any particular position to insert element as map automatically sort the data according to the order. To know more ways to insert elements in a map, refer this article – Different Ways to Insert Elements in a Map
+
+
+2. Accessing Elements
+
+Map elements can be accessed by using the corresponding key inside operator []. If the key exists, it will return the associated value but if the key doesn’t exist, it will create a new element with the given key and the default value. To avoid this, we can also use at() method for accessing elements with any modification.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{1, "Geeks"},
+             {2, "For"}, {3, "Geeks"}};
+
+    // Accessing elements
+    cout << m[1] << endl;
+    cout << m.at(2);
+
+    return 0;
+}
+
+Output
+Geeks
+For
+
+To know more methods to access values in a map, refer to the article – Different Ways to Access a Value in a Map
+
+3. Updating Elements
+
+The key of an already present elements cannot be modified in the map. But the associated value can be changed by first accessing the element and then using assignment operator to change the value.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{1, "Geeks"},
+             {2, "For"}, {3, "Geeks"}};
+
+    // Updating value
+    m[0] = "Tweaks";
+    m.at(1) = "By";
+    
+    cout << m[0] << endl;
+    cout << m.at(1);
+    return 0;
+}
+
+Output
+Tweaks
+By
+
+Explanation: In this program, expression m[0] = “Tweaks” updates the value associated with the key 0. Similarly, expression m.at(1) = “By” updates the value of the key 1.
+
+To see more methods to update values in a map, refer to the article – Different Ways to Update Value of a Pair in Map
+
+
+4. Finding Elements
+Map provides fast element search by key using the find() member function. This function returns iterator the element if found, otherwise returns end() iterator.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{1, "Geeks"},
+             {2, "For"}, {3, "Geeks"}};
+
+    // Finding element with key 2
+    auto it = m.find(2);
+    
+    if (it != m.end())
+        cout << it->first << " " << it->second;
+    else cout << "Key not Found!";
+    return 0;
+}
+
+Output
+2 For
+
+To know more methods to search element in map, refer to this article – Check if Map Contains a Specific Key
+
+5. Traversing
+
+Maps can be easily traversed by using either range based for loop or using begin() and end() iterator with traditional loops.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{1, "Geeks"},
+             {2, "For"}, {3, "Geeks"}};
+    
+    // Traversing using iterators
+    for (auto it = m.begin(); it != m.end(); ++it) 
+        cout << it->first << " " << it->second
+        << endl;
+
+    return 0;
+}
+
+Output
+1 Geeks
+2 For
+3 Geeks
+
+To see more methods to traverse a map, refer to the article – Different Ways to Traverse a Map
+
+6. Deleting Elements
+
+Map elements can be deleted from a map using erase() method by passing the key or an iterator.
+
+Example:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{1, "Geeks"},
+             {2, "For"}, {3, "Geeks"}};
+
+    // Deleting by key
+    m.erase(2);
+    
+    // Deleting by iterator
+    m.erase(m.begin());
+    
+    for(auto i : m)
+        cout << i.first << " " << i.second
+        << endl;
+    return 0;
+}
+
+Output
+3 Geeks
+
+To know more ways to delete elements in a map, refer this article – Different Ways to Delete Elements from Map
+
+
+
+Time Complexity
+
+The below table lists the time complexity of the above operations on map:
+
+Insert an element.           O(log n)
+
+Delete an element by key	O(log n)
+
+Access element by key	O(log n)
+
+Find an element by key.      O(log n)
+
+Update element by key	O(log n)
+
+Traverse the map                 O(n)
+
+Other Common Operations
+
+Following are some other commonly used operations on a map in C++:
+
+Check if a Map is Empty
+
+Find the Size of a Map
+
+Swap Two Maps
+
+Convert a Vector of Pairs to a Map
+
+Sort Map in Custom Order
+
+Create a Map for User Defined Datatype
+
+Merge Two Maps
+
+Internal Working
+
+In C++, map is an associative container that provides the built-in implementation of Red-Black Tree. It stores the elements in some sorted order on the basis of keys. Due do RB Trees, insertion, deletion, and search operations takes logarithmic O(log n) time.
+
+
+All Member Functions
+
+Here’s the list of all member functions of std::map:
+
+insert()	
+
+Insert elements with a particular key in the map container.
+
+count()	
+
+Returns the number of elements matching specific key
+
+equal_range()	
+
+Returns an iterator of pairs. The pair refers to the bounds of a range that includes all the elements in the container which have a key equivalent to k.
+
+erase()	
+
+Used to erase elements from the map.
+
+begin()
+
+Returns an iterator pointing to the first element of the map.
+
+end()
+
+Returns an iterator pointing to the first element of the map.
+
+rend()	
+
+Returns a reverse iterator pointing to the element preceding the first element of the map
+
+rbegin()	
+
+Returns a reverse iterator pointing to the last element of the map.
+
+find()	
+
+Returns an iterator to the element with key-value in the map if found, else returns the iterator to end.
+
+crbegin()	
+
+crbegin() returns a constant reverse iterator referring to the last element in the map container.
+
+crend() 
+
+crend() returns a constant reverse iterator pointing to the theoretical element before the first element in the map.
+
+cbegin()	
+
+ cbegin() returns a constant iterator referring to the first element in the map container.
+
+cend()
+
+cend() returns a constant iterator pointing to the element that is beyond the last element.
+
+emplace()	
+
+Inserts the key with value in the map container.
+
+max_size()  
+
+Returns the maximum number of elements a map can hold.
+
+upper_bound()	
+
+Find the first element in the map that is just greater than the given key.
+
+lower_bound()	
+
+Find the first element in the map that is equal to or greater than the given key.
+
+emplace_hint()	
+
+Inserts the key and its element in the map container with a given hint.
+
+value_comp()  
+
+Returns the object that determines how the elements in the map are ordered (‘<‘ by default).
+
+key_comp()  
+
+Returns the object that determines how the elements in the map are ordered (‘<‘ by default).
+
+size()	
+
+Returns the number of elements in the map.
+
+empty()	
+
+Returns whether the map is empty.
+
+clear()  
+
+Removes all the elements from the map.
+
+at()	
+
+at() function is used to the element associated with the key k.
+
+swap()
+
+swap() function is used to exchange the contents of two maps but the maps must be of the same type, although sizes may differ.
