@@ -1,0 +1,144 @@
+How to Check if Map Contains a Specific Key in C++?
+
+In C++, std::map is an STL container that stores key-value pairs in a sorted order based on the keys. In this article, we will learn how to check if an element with the given key exists in a map or not in C++.
+
+Examples
+
+Input: m = {{5, "apple"}, {4, "kiwi"}, {6, "cherry"}}, k = 4
+Output: Key found.
+Explanation: The element with key 4 is present in the map.
+
+Input: m = {{5, "apple"}, {4, "kiwi"}, {6, "cherry"}}, k = 8
+Output: Key NOT found.
+
+Explanation: The element with key 8 is NOT present in the map.
+
+Following are the 4 different methods to check if the std::map contains the element with specific key or not in C++:
+
+Table of Content
+
+Using map::find() Method
+
+Using map::count() Method
+
+Using map::contains() Method (C++ 20)
+
+Manually Using Loop
+
+Using map::find() Method
+
+C++ STL provides the std::map::find() method that searches the map for a given key and returns an iterator to the element if it is found. If it is not found, std::map::end() is returned. It is a member function of std::map, so we can directly use it using dot operator.
+
+Example
+
+// C++ program to check if a map contains
+// a specific key using map::find() method
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{5, "apple"},
+            {4,"kiwi"}, {6, "cherry"}};
+    int k = 4;
+
+    // Check if the key is found
+    if (m.find(k) != m.end()) {
+        cout << "Key found";
+    } else {
+
+        cout << "Key not found";
+    }
+    return 0;
+}
+
+Output
+Key found
+
+Time Complexity: O(log n), where n is the number of elements in the map.
+
+Auxiliary Space: O(1)
+
+
+
+Using map::count() Method
+
+We can also use the std::map::count() method to check whether the map contains a specific key. If the key is present, it returns 1, otherwise, it returns 0. It is also a member function of std::map.
+
+Example
+
+// C++ program to check if a map contains a
+// specific key using map::contains()
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    map<int, string> m = {{5, "apple"},
+           {4, "kiwi"}, {6, "cherry"}};
+    int k = 4;
+
+    // Check if key is found
+    if (m.contains(k)) {
+        cout << "Key found";
+    } else {
+        cout << "Key not found";
+    }
+    return 0;
+}
+Output
+
+Key found
+
+
+Time Complexity: O(log n), where n is the number of elements in the map.
+
+Auxiliary Space: O(1)
+
+
+
+Manually Using Loop
+
+Another way to check if a map contains a specific key is by manually iterating through the std::map container using a loop with iterators. We compare each key of the map with the target key inside an if statement. If the key is found, set the flag as true and return
+
+Example
+
+// C++ program to check if a map contains
+// a specific key using a manual loop
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isKeyPresent(map<int, string>& m, int k) {
+  
+  	 // Manually iterate over map to find key
+    for (auto &p : m) {
+      
+      	// If key is found
+        if (p.first == k) {
+            return true;
+        }
+    }
+  	
+  	// If we reach the map end without finding
+  	// the key
+  	return false;
+}
+
+int main() {
+    map<int, string> m = {{5, "apple"},
+           {4, "kiwi"}, {6, "cherry"}};
+    int k = 4;
+
+    // Check if key exists
+    if (isKeyPresent(m, k)) {
+        cout << "Key found";
+    } else {
+        cout << "Key not found";
+    }
+    return 0;
+}
+
+Output
+Key found
+
+Time Complexity: O(n), where n is the number of elements in the map.
+
+Auxiliary Space: O(1)
