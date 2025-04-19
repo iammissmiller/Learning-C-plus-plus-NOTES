@@ -1,0 +1,66 @@
+How to Check if a Map is Empty in C++?
+
+In C++, a map is an associative container that stores elements as key-value pairs and an empty map means it contains no elements. In this article, we will learn how to check if a map is empty or not in C++.
+
+Example:
+
+Input: 
+map<int,string>mp1 = {{1, "Ram"}, {2, "Mohit"}};
+map<int,string> mp2={};
+Output:
+mp1 is not empty
+mp2 is empty 
+Check if a Map is Empty in C++
+To check if a std::map is empty or not, we can use the std::map::empty() function that returns true if the map is empty otherwise it returns false.
+
+C++ Program to Check if a Map is Empty or Not
+The below example demonstrates how we can use the empty() function to check if the given map is empty or not in C++ STL.
+
+
+
+
+// C++ program to check whether map is empty or not.
+
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+
+    // defining an empty map
+    map<int, string> mp1;
+
+    // checking if the mp1 is empty
+    if (mp1.empty()) {
+        cout << "mp1 is empty." << endl;
+    }
+    else {
+        cout << "mp1 is not empty." << endl;
+    }
+
+    // defining a map and inserting a key value pair
+    map<int, string> mp2;
+    mp2.insert(make_pair(1, "One"));
+
+    // Checking if mp2 is empty
+    if (mp2.empty()) {
+        cout << "mp2 is empty." << endl;
+    }
+    else {
+        cout << "mp2 is not empty." << endl;
+    }
+
+    return 0;
+}
+
+Output
+mp1 is empty.
+mp2 is not empty.
+
+
+Time Complexity: O(1)
+Auxiliary Space: O(1)
+
+Note: We can also use map::size() function to check if the given map is empty or not in C++.
+
