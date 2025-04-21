@@ -1,0 +1,53 @@
+How to Convert a Vector of Pairs to a Map in C++?
+
+In C++, a vector of pairs can be converted to a map. This can be useful when you want to create a map from a vector of pairs, where each pair contains a key and a value. In this article, we will learn how to convert a vector of pairs to a map in C++.
+
+For Example,
+
+Input:
+myVector = {{1, “one”}, {2, “two”}, {3, “three”}};
+Output:
+Map is : {1: “one”, 2 : “two”, 3 : “three”}
+
+
+Vector of Pairs to Map in C++
+
+To convert a std::vector of std::pair to std::map, we can use the range constructor of std::map that takes two iterators, one pointing to the beginning and the other to the end of the vector.
+
+C++ Program to Convert a Vector of Pairs to a Map
+The below example demonstrates how we can create a map of vectors and insert the key-value pairs in it in C++.
+
+
+
+
+// C++ Program to illustrate how to Create a Map of Vectors
+// Using Vector
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    // Creating a vector of pairs
+    vector<pair<int, string> > vec
+        = { { 1, "one" }, { 2, "two" }, { 3, "three" } };
+
+    // Converting the vector of pairs to a map
+    map<int, string> myMap(vec.begin(), vec.end());
+
+    // Printing the map
+    for (auto& pair : myMap) {
+        cout << pair.first << " => " << pair.second << endl;
+    }
+
+    return 0;
+}
+
+Output
+1 => one
+2 => two
+3 => three
+
+Time Complexity: O(N logN), where N is the size of vector.
+Auxiliary Space: O(N)
