@@ -1,0 +1,125 @@
+All Member Functions
+
+Here’s the list of all member functions of std::map:
+
+
+insert()	
+
+Insert elements with a particular key in the map container.
+
+count()	
+
+Returns the number of elements matching specific key
+
+
+equal_range()	
+
+Returns an iterator of pairs. The pair refers to the bounds of a range that includes all the elements in the container which have a key equivalent to k.
+
+
+erase()	
+
+Used to erase elements from the map.
+
+
+begin()
+
+Returns an iterator pointing to the first element of the map.
+
+
+end()
+
+Returns an iterator pointing to the first element of the map.
+
+
+rend()	
+Returns a reverse iterator pointing to the element preceding the first element of the map
+
+
+rbegin()	
+Returns a reverse iterator pointing to the last element of the map.
+
+
+find()
+
+Returns an iterator to the element with key-value in the map if found, else returns the iterator to end.
+
+
+crbegin()	
+
+crbegin() returns a constant reverse iterator referring to the last element in the map container.
+
+
+crend() 
+
+crend() returns a constant reverse iterator pointing to the theoretical element before the first element in the map.
+
+
+cbegin()	
+
+ cbegin() returns a constant iterator referring to the first element in the map container.
+
+
+cend()
+
+cend() returns a constant iterator pointing to the element that is beyond the last element.
+
+
+emplace()	
+
+Inserts the key with value in the map container.
+
+
+max_size() 	
+
+Returns the maximum number of elements a map can hold.
+
+
+upper_bound()	
+
+Find the first element in the map that is just greater than the given key.
+
+
+lower_bound()	
+
+Find the first element in the map that is equal to or greater than the given key.
+
+
+emplace_hint()	
+
+Inserts the key and its element in the map container with a given hint.
+
+
+value_comp() 	
+
+Returns the object that determines how the elements in the map are ordered (‘<‘ by default).
+
+
+key_comp() 	
+
+Returns the object that determines how the elements in the map are ordered (‘<‘ by default).
+
+
+size()	
+
+Returns the number of elements in the map.
+
+
+empty()	
+
+Returns whether the map is empty.
+
+
+clear() 	
+
+Removes all the elements from the map.
+
+
+at()	
+
+at() function is used to the element associated with the key k.
+
+
+swap()
+
+swap() function is used to exchange the contents of two maps but the maps must be of the same type, although sizes may differ.
