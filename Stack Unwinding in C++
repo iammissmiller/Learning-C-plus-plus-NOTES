@@ -1,0 +1,140 @@
+Stack Unwinding in C++
+
+
+Stack Unwinding is the process of removing function call frames from function call stack at run time. The local objects are destroyed in reverse order in which they were constructed.
+
+Stack unwinding is a normal process that occurs when a function returns a value. But it can also occur due to exception handling in C++. In this article, we will see how the exceptions lead to stack unwinding, how it affects the program and also how to avoid it whole together or only its consequences.
+
+
+Stack Unwinding due to Exceptions
+
+Stack unwinding occurs when an exception occurs in a function but is not handled immediately in that function. The program control goes back through each function step by step, cleaning up any temporary resources used by each function. During this process, C++ also looks for a way to handle the exception by searching for a “catch” block that can deal with it. If a “catch” block is found, it tries to handle the exception there. If no solution is found by the time it reaches the beginning, the program stops because it doesn’t know what else to do.
+
+Example:
+
+
+#include <iostream>
+using namespace std;
+
+// Function f1() that throws an int exception
+void f1() {
+    cout << "f1() Start \n";
+    
+    // Throw the exception
+    throw 100;
+    cout << "f1() End \n";
+}
+
+// Function f2() that calls f1()
+void f2() {
+    cout << "f2() Start \n";
+    f1();
+    cout << "f2() End \n";
+}
+
+// Function f3() that calls f2() and handles
+// exception thrown by f1()
+void f3() {
+    cout << "f3() Start \n";
+    try {
+        f2();
+    }
+    catch (int i) {
+        cout << "Caught Exception: " << i << "\n";
+    }
+    cout << "f3() End";
+}
+
+int main() {
+    f3();
+    return 0;
+}
+
+Output
+ f3() Start 
+ f2() Start 
+ f1() Start 
+ Caught Exception: 100
+ f3() End
+
+
+Explanation:
+
+When f1() throws exception, its entry is removed from the function call stack, because f1() doesn’t contain exception handler for the thrown exception, then next entry in call stack is looked for exception handler.
+The next entry is f2(). Since f2() also doesn’t have a handler, its entry is also removed from the function call stack.
+The next entry in the function call stack is f3(). Since f3() contains an exception handler, the catch block inside f3() is executed, and finally, the code after the catch block is executed.
+
+
+
+Dynamic Resources and Stack Unwinding
+
+
+Stack unwinding cleans up all the local objects by calling their destructor, but dynamic resources, such as memory allocated in the heap using new keyword, are not automatically cleaned up during stack unwinding because they are not tied to local variables that go out of scope. This means that the program must manually ensure that dynamic resources are properly released.
+
+Dynamic resources are not cleared automatically, so when stack unwinding occurs. Make sure dynamic resources are handled properly otherwise, they can cause memory leaks. To handle dynamic resources, we can use either a smart pointer or handle them manually in the destructor.
+
+Example:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void func() {
+    
+    // Create a unique_ptr that 
+    // manages dynamic memory
+    unique_ptr<int> data(new int(10));
+    
+    cout << "Resource allocated: " << *data << endl;
+
+    // Throw the exception 
+    throw runtime_error("An error occurred");
+}
+
+int main() {
+    try {
+        
+        // Call the function that 
+        // may throw an exception
+        func();
+    }
+    catch (const exception& e) {
+        cout << e.what();
+    }
+    return 0;
+}
+
+Output
+Resource allocated: 10
+An error occurred
+
+
+How to resolve this issue?
+
+The most recommended solution of this problem is to use use RAII (Resource Acquisition Is Initialization). This can be done by using smart pointers or your own RAII wrapper class. We can also avoid manual resource management in exception-prone code and use the standard containers such as vector, set, etc. The last solution is to write code such as all the exception thrown are handled immediately before the stack unwinding starts.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
