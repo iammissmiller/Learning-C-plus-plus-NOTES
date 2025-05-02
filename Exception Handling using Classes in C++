@@ -1,0 +1,271 @@
+Exception Handling using Classes in C++
+
+
+In C++, unexpected issues may occur during program execution such as attempting to divide by zero, accessing a non-existent file or using invalid data. These issues are called exceptions. These exceptions must be handled to avoid abnormal termination of the program.
+
+C++ provides try-catch block to handle these exceptions. A value that represents an exception is thrown in the try block and it is caught and handled in the catch block. These values are generally an object of a class that represent the type of exceptions.
+
+In-Built Exception Classes
+C++ provides some built-in classes to represent some of the common exceptions like, overflow, out_of_range, etc. The std::exception class is the base class for all the other exception classes. It is defined as shown:
+
+
+class exception {
+public:
+
+    exception() noexcept;
+    exception(const exception&) noexcept;
+    exception& operator=(const exception&) noexcept;
+    
+    virtual ~exception();
+    virtual const char* what() const noexcept;
+};
+
+Here, the what() method returns the string describing the type of exception. Some methods are virtual methods so that inheriting classes can redefine the functions according to their requirement. The most commonly used inbuilt exception classes are listed below:
+
+
+logical_error	
+
+
+invalid_argument	
+
+Indicates invalid arguments passed to functions.
+
+
+out_of_range	
+
+Indicates an out-of-range error.
+
+
+domain_error	
+
+Indicates a mathematical domain error (e.g., attempting to take the square root of a negative number).
+
+
+runtime_error	
+
+overflow_error	Indicates mathematical overflow errors (e.g., arithmetic overflow).
+
+
+underflow_error	
+
+Indicates mathematical underflow errors (e.g., floating-point underflow)
+
+
+ios_base::failure	
+
+Indicates input/output failure.
+
+
+bad_cast		
+
+Indicates the dynamic_cast to a reference fails.
+
+
+bad_alloc		
+
+Indicates failure in memory allocations.
+
+
+These exceptions are generally thrown by library components and programmer should be aware to catch it.
+
+
+Example:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    try {
+        
+        // Try allocating a huge block of memory
+        int* bigArray = new int[100000000000000];  
+        
+    } catch (const bad_alloc& e) {
+        cout << "Caught bad_alloc: " << e.what();
+    }
+    
+    // Moving on to next part of the code
+
+    return 0;
+}
+
+Output
+Caught bad_alloc: std::bad_alloc
+
+
+
+Creating a Custom Exception Class
+
+We can also create our custom exception class in case the provided exceptions do not suit our requirements. There are three ways to do it:
+
+1. Inheriting from std::exception
+Simplest way to create a custom exception class is inheriting from the std::exception class. This allows your custom exception to work seamlessly with the standard exception handling mechanisms in C++. The behaviour can be modified by function overriding.
+
+Example:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+// Create an own custom class for
+// exception handling
+class CustomExcept : public exception {
+public:
+    
+    // Override what() function
+    const char* what() const noexcept override {
+        return "This is a custom exception!";
+    }
+};
+
+int main() {
+    try {
+        
+        // Throwing our custom exception
+        throw CustomExcept();  
+    }
+    catch (const CustomExcept& e) {
+        cout << "Caught an exception: " << e.what();  
+    }
+
+
+
+    return 0;
+}
+
+
+Output
+Caught an exception: This is a custom exception!
+
+Explanation: In the above example, create a custom class called “CustomExcept“. When we throw our “CustomExcept” and catch it in the catch block, it prints the custom error message using what() method.
+
+
+
+
+2. Inheriting from Other Exceptions
+
+We can also inherit other exception classes such as runtime_error or logical_error to specifically represents errors that arise during the program’s execution, such as runtime errors. One advantage of this method is that we can use the custom message passing of these exceptions in our exception class.
+
+Example:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+class CustomExcept : public runtime_error {
+public:
+
+	// Using constructor for passing custom message
+	CustomExcept(const string& message)
+        : runtime_error(message) {}
+};
+
+int main() {
+    try {
+        throw CustomExcept(
+            "This is a custom runtime_exception!"
+        );
+    }
+    catch (const CustomExcept& e) {
+        cout << e.what();
+    }
+
+
+
+    return 0;
+}
+
+
+Output
+This is a custom runtime_exception!
+
+
+Explanation: In the above example, a custom exception class named CustomExcept is created, which is derived from the standard runtime_error class.
+
+
+
+3. Creating a Non-Standard Exception
+
+We can also create custom exceptions without directly inherit from built-in exceptions. This gives more flexibility but makes it harder to integrate with standard C++ exception-handling utilities.
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+
+class CustomExcept {
+public:
+	CustomExcept(const string& msg) : message(msg) {}
+    
+    // Handle custom exception using
+    // what() method.
+    const char* what() const {
+        return message.c_str();
+    }
+
+private:
+    string message;
+};
+
+int main() {
+    try {
+        throw CustomExcept(
+            "This is a custom exception!"
+        );
+    }
+    catch (const CustomExcept& e) {
+        cout << e.what();
+    }
+
+
+
+    return 0;
+}
+
+
+
+Output
+This is a custom exception!
+
+Explanation: In the above example, create a class called “CustomExcept“, which received a custom message which is thrown by try block.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
